@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Own Map Iceland</title>
+    <title>Adlerwege</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script src="daten/adler01.js"></script>
@@ -51,11 +51,11 @@
         }).addTo(map);
 
         var adler01 = L.geoJson(adlerjson01, {style: {color: "#ff120f"}}).addTo(map)
-        adler01.bindPopup("<h2>Adlerweg Nr. 1</h2>")
+        adler01.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-1-st-johann-gaudeamushuette'><h3>Adlerwege Nr.1</h3></a>")
         var adler02 = L.geoJson(adlerjson02, {style: {color: "blue"}}).addTo(map)
-        adler02.bindPopup("<h2>Adlerweg Nr. 2</h2>")
+        adler02.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-2-gaudeamushuette-hintersteiner-see'><h3>Adlerwege Nr.2</h3></a>")
         var adler03 = L.geoJson(adlerjson03, {style: {color: "green"}}).addTo(map)
-        adler03.bindPopup("<h2>Adlerweg Nr. 3</h2>")
+        adler03.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-3-hintersteiner-see-kufstein'><h3>Adlerweg Nr.3</h3></a>")
 
         map.fitBounds(adler01)
     };
