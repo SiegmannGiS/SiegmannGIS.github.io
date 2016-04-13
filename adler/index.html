@@ -57,7 +57,7 @@
         var adler03 = L.geoJson(adlerjson03, {style: {color: "green"}}).addTo(map)
         adler03.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-3-hintersteiner-see-kufstein'><h3>Adlerweg Nr.3</h3></a>")
 
-        map.fitBounds(adler01)
+        map.fitBounds(adler02, {padding: [210,210]})
     };
 </script>
 </head>
