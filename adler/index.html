@@ -51,8 +51,11 @@
         }).addTo(map);
 
         var adler01 = L.geoJson(adlerjson01, {style: {color: "#ff120f"}}).addTo(map)
+        adler01.bindPopup("<h2>Adlerweg Nr. 1</h2>")
         var adler02 = L.geoJson(adlerjson02, {style: {color: "blue"}}).addTo(map)
+        adler02.bindPopup("<h2>Adlerweg Nr. 2</h2>")
         var adler03 = L.geoJson(adlerjson03, {style: {color: "green"}}).addTo(map)
+        adler03.bindPopup("<h2>Adlerweg Nr. 3</h2>")
 
         map.fitBounds(adler01)
     };
