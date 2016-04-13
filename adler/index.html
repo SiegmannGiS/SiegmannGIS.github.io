@@ -50,9 +50,9 @@
             'imperial' : true
         }).addTo(map);
 
-        var adler01 = L.geoJson(adlerjson01).addTo(map)
-        var adler02 = L.geoJson(adlerjson02).addTo(map)
-        var adler03 = L.geoJson(adlerjson03).addTo(map)
+        var adler01 = L.geoJson(adlerjson01, {style: {color: "#ff120f"}}).addTo(map)
+        var adler02 = L.geoJson(adlerjson02, {style: {color: "blue"}}).addTo(map)
+        var adler03 = L.geoJson(adlerjson03, {style: {color: "green"}}).addTo(map)
 
         map.fitBounds(adler01)
     };
