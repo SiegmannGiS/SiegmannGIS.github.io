@@ -5,6 +5,9 @@
     <title>Own Map Iceland</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="daten/adler01.js"></script>
+    <script src="daten/adler02.js"></script>
+    <script src="daten/adler03.js"></script>
     <script>
     window.onload = function () {
 
@@ -47,8 +50,11 @@
             'imperial' : true
         }).addTo(map);
 
+        var adler01 = L.geoJson(adlerjson01).addTo(map)
+        var adler02 = L.geoJson(adlerjson02).addTo(map)
+        var adler03 = L.geoJson(adlerjson03).addTo(map)
 
-        map.fitBounds(polyline.getBounds().pad(0.1));
+        map.fitBounds(adler01)
     };
 </script>
 </head>
