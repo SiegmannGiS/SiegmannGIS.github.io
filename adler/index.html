@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>basemap.at with layers (leaflet)</title>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-<script>
+    <meta charset="UTF-8">
+    <title>Own Map Iceland</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script>
     window.onload = function () {
 
-        var layers = { // http://www.basemap.at/wmts/1.0.0/WMTSCapabilities.xml
+        var schichten = { // http://www.basemap.at/wmts/1.0.0/WMTSCapabilities.xml
             geolandbasemap : L.tileLayer("http://{s}.wien.gv.at/basemap/geolandbasemap/normal/google3857/{z}/{y}/{x}.png", {
                 subdomains : ['maps', 'maps1', 'maps2', 'maps3', 'maps4'],
                 attribution : 'Datenquelle: <a href="http://www.basemap.at/">basemap.at</a>'
@@ -31,28 +31,35 @@
             })
         };
 
-        var map = L.map('map', {
-            layers : [layers.geolandbasemap]
+        var map = L.map('karte', {
+            layers : [schichten.geolandbasemap]
         });
 
         L.control.layers({
-            "Geoland Basemap" : layers.geolandbasemap,
-            "Geoland Basemap Overlay" : layers.bmapoverlay,
-            "Geoland Basemap Grau": layers.bmapgrau,
-            "Geoland Basemap High DPI" : layers.bmaphidpi,
-            "Geoland Basemap Orthofoto" : layers.bmaporthofoto30cm
+            "Geoland Basemap" : schichten.geolandbasemap,
+            "Geoland Basemap Overlay" : schichten.bmapoverlay,
+            "Geoland Basemap Grau": schichten.bmapgrau,
+            "Geoland Basemap High DPI" : schichten.bmaphidpi,
+            "Geoland Basemap Orthofoto" : schichten.bmaporthofoto30cm
         }).addTo(map)
 
         L.control.scale({
-            'imperial' : false
+            'imperial' : true
         }).addTo(map);
 
 
-
+        map.fitBounds(polyline.getBounds().pad(0.1));
     };
 </script>
 </head>
 <body>
-    <div id="map" style="width:900px;height:600px"></div>
+
+<h1>Adlerwege</h1>
+
+<div id="karte" style="width:900px;height:600px"></div>
+
 </body>
 </html>
+
+
+<!--http://leafletjs.com/reference.html-->
