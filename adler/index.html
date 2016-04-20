@@ -75,7 +75,15 @@
         var panoscript = document.createElement("script");
         panoscript.src = url;
         document.getElementsByTagName("head")[0].appendChild(panoscript);
-        window.showimages = function(images) {console.log("fertig geladen", images);}
+        window.showimages = function(images) {
+            for (var i=0; i<images.photos.length; i++) {
+                console.log("photo title", images.photos[i]);
+                var imagemarker = L.marker([images.photos[i].latitude, images.photos[i].longitude],
+                                    {icon: L.icon({iconUrl:images.photos[i].photo_file_url})}).addTo(map);
+
+                imagemarker.bindPopup("<a href="+images.photos[i].photo_url+"><h3>"+images.photos[i].photo_title+"</h3></a>");
+            }
+        }
 
         var overlays = {"Wege": alladler};
 
