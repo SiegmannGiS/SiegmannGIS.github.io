@@ -57,10 +57,10 @@
         var adler03 = L.geoJson(adlerjson03, {style: {color: "green"}})
         adler03.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-3-hintersteiner-see-kufstein'><h3>Adlerweg Nr.3</h3></a>")
 
-        var alladler = L.featureGroup([adler01, adler02, adler03])
+        var alladler = L.featureGroup([adler01, adler02, adler03]);
 
-        map.addLayer(alladler)
-        map.fitBounds(alladler)
+        map.addLayer(alladler);
+        map.fitBounds(alladler);
 
         var bounds = alladler.getBounds();
 
@@ -70,11 +70,14 @@
         + "&miny="+bounds.getSouth()
         + "&maxx="+bounds.getEast()
         + "&maxy="+bounds.getNorth()
-        + "&size=mini_square&mapfilter=true&callback=zeigBilder";
+        + "&size=mini_square&mapfilter=true&callback=showimages";
 
-        alert(url)
+        var panoscript = document.createElement("script");
+        panoscript.src = url;
+        document.getElementsByTagName("head")[0].appendChild(panoscript);
+        window.showimages = function(images) {console.log("fertig geladen", images);}
 
-        var overlays = {"Wege": alladler}
+        var overlays = {"Wege": alladler};
 
         L.control.layers(baselayers, overlays).addTo(map);
     };
