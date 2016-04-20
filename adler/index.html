@@ -62,6 +62,18 @@
         map.addLayer(alladler)
         map.fitBounds(alladler)
 
+        var bounds = alladler.getBounds();
+
+        // Panoramio integration
+        var url = "http://www.panoramio.com/map/get_panoramas.php?set=public&from=0&to=20"
+        + "&minx="+bounds.getWest()
+        + "&miny="+bounds.getSouth()
+        + "&maxx="+bounds.getEast()
+        + "&maxy="+bounds.getNorth()
+        + "&size=mini_square&mapfilter=true&callback=zeigBilder";
+
+        alert(url)
+
         var overlays = {"Wege": alladler}
 
         L.control.layers(baselayers, overlays).addTo(map);
