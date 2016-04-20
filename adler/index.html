@@ -75,17 +75,56 @@
         var panoscript = document.createElement("script");
         panoscript.src = url;
         document.getElementsByTagName("head")[0].appendChild(panoscript);
+
+
+        var panoimages = L.featureGroup()
         window.showimages = function(images) {
+
             for (var i=0; i<images.photos.length; i++) {
-                console.log("photo title", images.photos[i]);
+                //console.log("photo title", images.photos[i]);
                 var imagemarker = L.marker([images.photos[i].latitude, images.photos[i].longitude],
-                                    {icon: L.icon({iconUrl:images.photos[i].photo_file_url})}).addTo(map);
+                                    {icon: L.icon({iconUrl:images.photos[i].photo_file_url})});
 
                 imagemarker.bindPopup("<a href="+images.photos[i].photo_url+"><h3>"+images.photos[i].photo_title+"</h3></a>");
+
+                imagemarker.addTo(panoimages)
             }
+            panoimages.addTo(map)
         }
 
-        var overlays = {"Wege": alladler};
+
+        // Wiki Integration
+        var url2 = "http://api.geonames.org/wikipediaBoundingBoxJSON?"
+                        + "north="+bounds.getNorth()
+                        + "&south="+bounds.getSouth()
+                        + "&east="+bounds.getEast()
+                        + "&west="+bounds.getWest()
+                        + "&username=oeggl&callback=showwiki";
+
+        var showwiki = document.createElement("script");
+        showwiki.src = url2;
+        document.getElementsByTagName("head")[0].appendChild(showwiki);
+
+        var wikiarticles = L.featureGroup()
+        window.showwiki = function(data) {
+
+            for (var i=0; i<data.geonames.length; i++) {
+                console.log("photo title", data.geonames[i]);
+                var wikimarker = L.marker([data.geonames[i].lat, data.geonames[i].lng],
+                        {icon: L.icon({iconUrl:"http://findicons.com/files/icons/111/popular_sites/128/wikipedia_globe_icon.png",
+                        iconSize : [30,30]})});
+
+                wikimarker.bindPopup("<a href=https://"+data.geonames[i].wikipediaUrl+"><h3>"+data.geonames[i].title+"</h3></a>");
+
+                wikimarker.addTo(wikiarticles)
+            }
+            wikiarticles.addTo(map)
+        }
+
+
+
+
+        var overlays = {"Wege": alladler, "Panoramio Images": panoimages, "Wiki": wikiarticles};
 
         L.control.layers(baselayers, overlays).addTo(map);
     };
