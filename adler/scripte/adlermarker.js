@@ -1,6 +1,10 @@
 /**
  * Created by Marcel on 27.04.2016.
+ * shows three etappes of the Adlerweg
+ * Panoramio integration
+ * wiki articles integration
  */
+
 window.onload = function() {
 
     var schichten = { // http://www.basemap.at/wmts/1.0.0/WMTSCapabilities.xml
