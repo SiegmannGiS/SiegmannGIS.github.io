@@ -120,7 +120,7 @@ window.onload = function() {
     window.showwiki = function(data) {
 
         for (var i = 0; i < data.geonames.length; i++) {
-            console.log("photo title", data.geonames[i]);
+            //console.log("photo title", data.geonames[i]);
             var wikimarker = L.marker([data.geonames[i].lat, data.geonames[i].lng], {
                 icon: L.icon({
                     iconUrl: "http://findicons.com/files/icons/111/popular_sites/128/wikipedia_globe_icon.png",
