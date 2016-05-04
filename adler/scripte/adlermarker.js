@@ -145,4 +145,6 @@ window.onload = function() {
     };
 
     L.control.layers(baselayers, overlays).addTo(map);
+
+    var hash = new L.Hash(map);
 };
