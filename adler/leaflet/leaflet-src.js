@@ -1559,7 +1559,7 @@ L.Map = L.Class.extend({
 
 	// public methods that modify map state
 
-	// replaced by animation-powered implementation in Map.PanAnimation.js
+	// replaced by animation-powered implementation in Map.PanAnimation.scripte
 	setView: function (center, zoom) {
 		zoom = zoom === undefined ? this.getZoom() : zoom;
 		this._resetView(L.latLng(center), this._limitZoom(zoom));
@@ -1623,7 +1623,7 @@ L.Map = L.Class.extend({
 	},
 
 	panBy: function (offset) { // (Point)
-		// replaced with animated panBy in Map.PanAnimation.js
+		// replaced with animated panBy in Map.PanAnimation.scripte
 		this.fire('movestart');
 
 		this._rawPanBy(L.point(offset));

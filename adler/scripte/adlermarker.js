@@ -46,22 +46,29 @@ window.onload = function() {
         'imperial': true
     }).addTo(map);
 
+    // elevation
+    var el = L.control.elevation({
+        position: "bottomleft",
+        collapsed: "True"
+    }).addTo(map)
+
     var adler01 = L.geoJson(adlerjson01, {
         style: {
             color: "#ff120f"
-        }
+        }, onEachFeature: el.addData.bind(el)
+
     })
     adler01.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-1-st-johann-gaudeamushuette'><h3>Adlerwege Nr.1</h3></a>")
     var adler02 = L.geoJson(adlerjson02, {
         style: {
             color: "blue"
-        }
+        }, onEachFeature: el.addData.bind(el)
     })
     adler02.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-2-gaudeamushuette-hintersteiner-see'><h3>Adlerwege Nr.2</h3></a>")
     var adler03 = L.geoJson(adlerjson03, {
         style: {
             color: "green"
-        }
+        }, onEachFeature: el.addData.bind(el)
     })
     adler03.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-3-hintersteiner-see-kufstein'><h3>Adlerweg Nr.3</h3></a>")
 
@@ -146,5 +153,9 @@ window.onload = function() {
 
     L.control.layers(baselayers, overlays).addTo(map);
 
+    // hash on site to send link with view
     var hash = new L.Hash(map);
+
+
+
 };
