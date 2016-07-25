@@ -47,7 +47,7 @@ h2 {
   font-weight: 700;
 }
 p{
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6em;
   margin: 0;
 }
@@ -206,14 +206,17 @@ div#service-area-main {
   background-repeat: no-repeat;
 }*/
 .service  h1 {
-  color: #fff;
+  color: #666666;
   text-transform: capitalize;
   text-shadow: 2px 2px #aaa;
   margin-bottom: 20px;
 }
 .service > p {
-    color: #fff;
-    font-size: 18px;
+    color: #363636;
+    font-size: 50px;
+    text-transform: capitalize;
+    text-shadow: 2px 2px #fff;
+    margin-bottom: 10px;
 }
 /* End Services CSS */
 
@@ -343,7 +346,8 @@ input {
 
 .about-section {
     height: 100%;
-    padding-top: 70px;
+    padding-top: 1px;
+    padding-bottom: 70px;
 }
 
 .services-section {
@@ -357,6 +361,9 @@ input {
 }
 .tm-box-description {
   padding: 30px;
+}
+.tm-box-between {
+    padding: 15px;
 }
 .tm-box-p {
   margin-bottom: 10px;
@@ -393,16 +400,16 @@ input {
 /*************navigation******************/
 
  .navbar-inverse {
-    background-color: #383E4C;
-    border-color: #383E4C;
+    background-color: #4b5d67;
+    border-color: #3b4b54;
 }
 .navbar-nav>li {
     display: inline-block;
     padding: 10px;
 }
 .navbar-inverse .navbar-nav>li>a {
-    background: #383E4C none repeat scroll 0 0;
-    border: 1px solid #646d7c;
+    background: rgba(59, 75, 84, 0.91) none repeat scroll 0 0;
+    border: 1px solid #e7e8e9;
     color: #fff ;
     font-size: 20px;
     padding: 15px 25px;
@@ -414,7 +421,7 @@ input {
 
 .navbar-inverse .navbar-nav > li > a.current,
 .navbar-inverse .navbar-nav > li > a:hover {
-        background: #49505F;
+        background: #566c79;
 }
 .navbar .navbar-nav {
     display: inline-block;
